@@ -2,10 +2,11 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    title
+    title Cat Chat
+    link(href='public/stylesheets/style.css')
   body
     #chat
-    form#send-message(action='index.html', method='post')
+    form#send-message(action='/', method='post')
       input#message(type='text')
       input(type='submit')
     script(src='http://code.jquery.com/jquery-latest.min.js')
@@ -18,7 +19,7 @@ html
       var $chat = $('#chat');
       $messageForm.submit(function(event){
       event.preventDefault();
-      socket.emit('send message', messageBox.val());
+      socket.emit('send message', $messageBox.val());
       $messageBox.val('');
       });
       socket.on('new message', function(){
