@@ -19,6 +19,11 @@ server.listen(8000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+io.sockets.on('connection', function(socket){
+  socket.on('send-message', function(data){
+    io.sockets.emit('new message', data);
+  });
+});
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

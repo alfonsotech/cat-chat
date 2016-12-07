@@ -4,4 +4,24 @@ html
     meta(charset='utf-8')
     title
   body
-    h1 Hello World!
+    #chat
+    form#send-message(action='index.html', method='post')
+      input#message(type='text')
+      input(type='submit')
+    script(src='http://code.jquery.com/jquery-latest.min.js')
+    script(src='/socket.io/socket.io.js')
+    script.
+      $(document).ready(function(){
+      var socket = io.connect();
+      var $form = $('#send-message');
+      var $messageBox = $('#message');
+      var $chat = $('#chat');
+      $messageForm.submit(function(event){
+      event.preventDefault();
+      socket.emit('send message', messageBox.val());
+      $messageBox.val('');
+      });
+      socket.on('new message', function(){
+      $chat.append(data + "<br/>");
+      });
+      });
