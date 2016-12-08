@@ -36,6 +36,14 @@
     margin: 0;
     padding: 0;
     }
+    #content-wrap{
+      display: none;
+    }
+    #chat-wrap {
+      float: left;
+      border: 1px solid #000;
+
+    }
     /*#messages li {
     padding: 5px 10px;
     margin: 50px;
@@ -47,13 +55,28 @@
     <!-- <link rel="stylesheet" href="styles.css"> -->
   </head>
   <body>
-    <ul>
-      <li id="chat"></li>
-    </ul>
-    <form id="send-message">
-      <input id="message" type="text" >
-      <input id="form-button" type="submit">
-    </form>
+    <div id="nick-wrap">
+      <p>Enter a Username:</p>
+      <p id="nick-error"></p>
+      <form id="set-nickname">
+        <input size="35" id="nickname">
+        <input type="submit">
+      </form>
+    </div>
+    <div id="content-wrap">
+      <div id="chat-wrap">
+        <ul>
+          <li id="chat"></li>
+        </ul>
+        <form id="send-message">
+          <input id="message" type="text" >
+          <input id="form-button" type="submit">
+        </form>
+      </div>
+      <div id="users">
+
+      </div>
+    </div>
 
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -61,11 +84,21 @@
     <script>
       $(document).ready(function() {
         var socket = io.connect();
+        var $nickForm = $('#set-nickname');
+        var $nickError = $('#nickError');
+        var $nickBox = $('#nickname');
         var $messageForm = $('#send-message');
         var $messageBox = $('#message');
 
         var $chat = $('#chat');
 
+        $nickForm.submit(function(e){
+          e.preventDefault();
+          socket.emit('new user', $nickBox.val(), function(data){
+            
+          });
+          $nickBox.val('');
+        });
         $messageForm.submit(function(e){
           e.preventDefault();
           socket.emit('send message', $messageBox.val());
