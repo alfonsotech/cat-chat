@@ -7,6 +7,7 @@
     <style>
     * {
     box-sizing: border-box;
+    outline: 1px dotted red;
     }
     body {
     font: 13px Helvetica, Arial;
@@ -39,7 +40,6 @@
       margin: 0 auto;
       display: inline-block;
       width: 49%;
-      border: 1px solid red;
       padding: 30px;
     }
     #users {
@@ -50,7 +50,6 @@
       margin: 0 auto;
       padding: 30px;
       display: block;
-      border: 1px solid #000;
       width: 100%;
     }
     #message-wrap {
@@ -59,6 +58,9 @@
       bottom: 0;
       margin: 0 auto;
       width: 100%;
+    }
+    .hidden {
+      visibility: hidden;
     }
     /*#messages li {
     padding: 5px 10px;
@@ -83,7 +85,7 @@
 
     </div>
 
-    <div id="content-wrap">
+    <div id="content-wrap" class="hidden">
       <div id="chat-wrap">
         <ul>
           <li id="chat"></li>
@@ -117,7 +119,7 @@
           socket.emit('new user', $nickBox.val(), function(data){
             if(data){
               $('#nick-wrap').hide();
-              $('#chat-wrap').show();
+              $('#content-wrap').removeClass();
             } else {
               $nickError.html('That username is already taken! Try again.');
             }
@@ -131,7 +133,7 @@
           for(var i=0; i<data.length; i++){
           html += data[i] + '<br/>';
           }
-        $users.html(html);
+        $users.append(html);
         });
 
         $messageForm.submit(function(e){
