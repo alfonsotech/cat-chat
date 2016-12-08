@@ -36,13 +36,13 @@
     margin: 0;
     padding: 0;
     }
-    #content-wrap{
+    #chat-wrap {
       display: none;
     }
-    #chat-wrap {
+    #content-wrap {
       float: left;
       border: 1px solid #000;
-
+      width: 100%;
     }
     /*#messages li {
     padding: 5px 10px;
@@ -56,13 +56,17 @@
   </head>
   <body>
     <div id="nick-wrap">
+
       <p>Enter a Username:</p>
       <p id="nick-error"></p>
+
       <form id="set-nickname">
         <input size="35" id="nickname">
         <input type="submit">
       </form>
+
     </div>
+
     <div id="content-wrap">
       <div id="chat-wrap">
         <ul>
@@ -73,9 +77,7 @@
           <input id="form-button" type="submit">
         </form>
       </div>
-      <div id="users">
-
-      </div>
+      <div id="users"></div>
     </div>
 
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -83,33 +85,48 @@
 
     <script>
       $(document).ready(function() {
+        var $users = $('#users');
         var socket = io.connect();
         var $nickForm = $('#set-nickname');
-        var $nickError = $('#nickError');
+        var $nickError = $('#nick-error');
         var $nickBox = $('#nickname');
         var $messageForm = $('#send-message');
         var $messageBox = $('#message');
-
         var $chat = $('#chat');
 
-        $nickForm.submit(function(e){
-          e.preventDefault();
+        $nickForm.submit(function(event){
+          event.preventDefault();
           socket.emit('new user', $nickBox.val(), function(data){
-            
+            if(data){
+              $('#nick-wrap').hide();
+              $('#chat-wrap').show();
+            } else {
+              $nickError.html('That username is already taken! Try again.');
+            }
           });
           $nickBox.val('');
         });
+
+        socket.on('usernames', function(data){
+
+          var html = '';
+          for(var i=0; i<data.length; i++){
+          html += data[i] + '<br/>';
+          }
+        $users.html(html);
+        });
+
         $messageForm.submit(function(e){
           e.preventDefault();
           socket.emit('send message', $messageBox.val());
-
           $messageBox.val('');
         });
 
         socket.on('new message', function(data) {
           $chat.append(data + '<br/>');
         });
-      });
+
+      }); //Document ready close
     </script>
   </body>
 </html>
