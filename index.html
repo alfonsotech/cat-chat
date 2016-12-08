@@ -3,21 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Simple Chat</title>
+    <!-- <link rel="stylesheet" href="public/styles.css"> -->
     <style>
     * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     }
     body {
     font: 13px Helvetica, Arial;
     }
+    ul {
+      list-style: none;
+    }
     #send-message {
     border: 1px solid red;
-    padding: 3px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     }
     #message {
     border: 0;
@@ -33,15 +31,33 @@
     }
     #message {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     }
     #chat-wrap {
       display: none;
     }
+    #chat-wrap, #users {
+      margin: 0 auto;
+      display: inline-block;
+      width: 49%;
+      border: 1px solid red;
+      padding: 30px;
+    }
+    #users {
+      float: right;
+
+    }
     #content-wrap {
-      float: left;
+      margin: 0 auto;
+      padding: 30px;
+      display: block;
       border: 1px solid #000;
+      width: 100%;
+    }
+    #message-wrap {
+      clear: both;
+      position: fixed;
+      bottom: 0;
+      margin: 0 auto;
       width: 100%;
     }
     /*#messages li {
@@ -51,8 +67,8 @@
     #messages li:nth-last-child(odd) {
     background: #EEE;
     }*/
+
     </style>
-    <!-- <link rel="stylesheet" href="styles.css"> -->
   </head>
   <body>
     <div id="nick-wrap">
@@ -72,14 +88,16 @@
         <ul>
           <li id="chat"></li>
         </ul>
-        <form id="send-message">
-          <input id="message" type="text" >
-          <input id="form-button" type="submit">
-        </form>
       </div>
       <div id="users"></div>
     </div>
 
+    <div id="message-wrap">
+      <form id="send-message">
+        <input id="message" type="text" >
+        <input id="form-button" type="submit">
+      </form>
+    </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 
