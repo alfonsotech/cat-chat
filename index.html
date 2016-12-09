@@ -4,43 +4,142 @@
     <meta charset="utf-8">
     <title>Simple Chat</title>
     <!-- <link rel="stylesheet" href="public/styles.css"> -->
+
+    <style>
+            /* http://meyerweb.com/eric/tools/css/reset/
+         v2.0 | 20110126
+         License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+        display: block;
+        }
+        body {
+        line-height: 1;
+        }
+        ol, ul {
+        list-style: none;
+        }
+        blockquote, q {
+        quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+        content: '';
+        content: none;
+        }
+        table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet">
     <style>
     * {
-    box-sizing: border-box;
-    outline: 1px dotted red;
+      box-sizing: border-box;
+      /*outline: 1px dotted red;*/
     }
-    body {
-    font: 13px Helvetica, Arial;
+    html {
+      font-family: 'Roboto','Noto Sans', sans-serif;
+      background-color: #00BCD4;
+      color: white;
+      font-weight: lighter;
     }
     ul {
       list-style: none;
     }
-    #send-message {
-    border: 1px solid red;
+    .top-banner {
+      background-color: #00BCD4;
+      padding: 25px;
+      text-align: center;
+      width: 100%;
+      -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+      -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+      box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+
+    }
+    .title {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      color: white;
+      text-shadow: 2px 2px #0097A7;
+    }
+    h1 {
+      font-size: 3.25em;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+    p, li {
+      font-size: 1em;
+    }
+    #nick-wrap {
+      position: fixed;
+      bottom: 50%;
+      right: 33%;
+    }
+    #nickname {
+      padding: 5px;
+      margin-top: 3px;
     }
     #message {
     border: 0;
-    padding: 10px;
+    padding: 1%;
     width: 90%;
-    margin-right: .5%;
+    margin-left: 1%;
+    list-style-type: none;
+    -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+    -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+    box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+    margin-bottom: 2%;
     }
     #form-button {
-    width: 9%;
-    background: rgb(130, 224, 255);
+    width: 8%;
     border: none;
     padding: 10px;
-    }
-    #message {
-    list-style-type: none;
+    -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+    -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+    box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+    background-color: rgba(255,255,255, .2);
+    margin-bottom: 2%;
     }
     #chat-wrap {
       display: none;
+    }
+    #message, #nickname {
+      background-color: rgba(255,255,255, .2);
     }
     #chat-wrap, #users {
       margin: 0 auto;
       display: inline-block;
       width: 49%;
       padding: 30px;
+      background-color: rgba(255,255,255, .2);
+      -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+      -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+      box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
     }
     #users {
       float: right;
@@ -62,6 +161,16 @@
     .hidden {
       visibility: hidden;
     }
+    hr {
+      opacity: .5;
+      width: 50%;
+      float: left;
+      display: block;
+    }
+    .clear {
+      clear: both;
+    }
+
     /*#messages li {
     padding: 5px 10px;
     margin: 50px;
@@ -71,35 +180,50 @@
     }*/
 
     </style>
+
   </head>
   <body>
-    <div id="nick-wrap">
+    </div>
+    <div class="top-banner">
+      <h1 class="title">Simple Chat Room</h1>
+    </div>
 
+    <div id="nick-wrap">
       <p>Enter a Username:</p>
       <p id="nick-error"></p>
-
       <form id="set-nickname">
         <input size="35" id="nickname">
         <input type="submit">
       </form>
-
     </div>
 
     <div id="content-wrap" class="hidden">
+
       <div id="chat-wrap">
-        <ul>
+        <h2 class="title">Chat Box</h2>
+        <hr>
+        <ul class="clear">
           <li id="chat"></li>
         </ul>
       </div>
-      <div id="users"></div>
+      <div id="users" >
+        <h2 class="title">Users</h2>
+        <hr>
+        <div class="clear">
+
+        </div>
+      </div>
+
+
     </div>
 
-    <div id="message-wrap">
+    <div id="message-wrap" class="hidden">
       <form id="send-message">
         <input id="message" type="text" >
         <input id="form-button" type="submit">
       </form>
     </div>
+
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
 
@@ -119,7 +243,8 @@
           socket.emit('new user', $nickBox.val(), function(data){
             if(data){
               $('#nick-wrap').hide();
-              $('#content-wrap').removeClass();
+              $('#content-wrap').removeClass('hidden');
+              $('#message-wrap').removeClass('hidden');
             } else {
               $nickError.html('That username is already taken! Try again.');
             }
