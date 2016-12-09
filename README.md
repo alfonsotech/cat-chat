@@ -26,7 +26,7 @@ Inspiration for this project can be found in [this tutorial](http://www.oreilly.
 
 
 ## Stretch Goals
-- [ ] Deploy using Heroku.
+- [x] Deploy using Heroku.
 - [ ] Store chat histories for later retrieval (create persistence layer) .
 - [ ] Enable users to search chat histories.
 - [ ] Create chat threads.
