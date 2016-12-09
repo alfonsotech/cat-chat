@@ -9,20 +9,20 @@ Building this app will require use of HTML, CSS, JavaScript, homebrew/npm, Node.
 
 ## Context
 
-Chat rooms are ubiquitous to online community building projects. If that is your sort of thing, chances are that you will want to build a chat room at some point in the near future. This project asks you to build your first, simple, live chat room for multiple users, and includes a number of stretch goals to allow you to make it more fancy (such as allowing users to log in, storing chat histories, creating chat threads, etc.), as allowed by time and experience. 
+Chat rooms are ubiquitous to online community building projects. If that is your sort of thing, chances are that you will want to build a chat room at some point in the near future. This project asks you to build your first, simple, live chat room for multiple users, and includes a number of stretch goals to allow you to make it more fancy (such as allowing users to log in, storing chat histories, creating chat threads, etc.), as allowed by time and experience.
 
 Inspiration for this project can be found in [this tutorial](http://www.oreilly.com/pub/e/2266) by Peter Cooper.
 
 
 ## Specifications
 
-- [ ] Include a text input area and a chat window in a simple yet appealing User Inerface.
-- [ ] Use of material design principles to make chat room "feel" good.
-- [ ] Build Node.js server( and install dependencies, using brew and/or npm) .
-- [ ] Type message into a text box.
-- [ ] On enter/return, message is sent to chat window (and text input box is cleared).
-- [ ] Chat window displays multi-user's messages in real time using [websockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
-- [ ] Attach user info (like a name) to each message; in order to do this, developers will need to ask for and save a user's name, or assign user a handle or number.
+- [x] Include a text input area and a chat window in a simple yet appealing User Inerface.
+- [x] Use of material design principles to make chat room "feel" good.
+- [x] Build Node.js server( and install dependencies, using brew and/or npm) .
+- [x] Type message into a text box.
+- [x] On enter/return, message is sent to chat window (and text input box is cleared).
+- [x] Chat window displays multi-user's messages in real time using [websockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
+- [x] Attach user info (like a name) to each message; in order to do this, developers will need to ask for and save a user's name, or assign user a handle or number.
 
 
 ## Stretch Goals

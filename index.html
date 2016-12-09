@@ -4,28 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Simple Chat</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto" rel="stylesheet">
-
+    <link rel="stylesheet" href="meyers.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     </div>
     <div class="top-banner">
       <h1 class="title">Simple Chat Room</h1>
     </div>
-
     <div id="nick-wrap">
       <p>Enter a Username:</p>
       <p id="nick-error"></p>
       <form id="set-nickname">
         <input size="35" id="nickname">
         <button type="submit" class="form-button padded-button">Submit</button>
-        <!-- <input type="submit" class="form-button"> -->
       </form>
     </div>
-
     <div id="content-wrap" class="hidden">
-
       <div id="chat-wrap">
         <h2 class="title">Chat Room</h2>
         <hr>
@@ -40,15 +36,12 @@
         </div>
       </div>
     </div>
-
     <div id="message-wrap" class="hidden">
       <form id="send-message">
         <input id="message" type="text">
         <button type="submit" class="form-button">Submit</button>
-        <!-- <input class="form-button" type="submit"> -->
       </form>
     </div>
-
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="index.js"></script>

@@ -23,12 +23,11 @@ $(document).ready(function() {
   });
 
   socket.on('usernames', function(data){
-
     var html = '';
-    for(var i=0; i<data.length; i++){
-    html += data[i] + '<br/>';
-    }
-  $users.append(html);
+      for(var i=0; i<data.length; i++){
+        html += data[i] + '<br/>';
+      }
+    $users.append(html);
   });
 
   $messageForm.submit(function(e){
@@ -40,6 +39,5 @@ $(document).ready(function() {
   socket.on('new message', function(data) {
     $chat.append('<b>' + data.nick + ' says: </b> ' + data.msg + '<br/>');
   });
-
 
 }); //Document ready close
