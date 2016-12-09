@@ -122,16 +122,17 @@
     }
     .form-button {
       border-radius: 50%;
-    width: 8%;
-    border: none;
-    padding: 10px;
-    padding-right: 50px;
-    text-align: center;
-    -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
-    -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
-    box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
-    background-color: rgba(255,255,255,0.76);
-    margin-bottom: 2%;
+      width: 8%;
+      padding: 10px;
+      text-align: center;
+      -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      background-color: rgba(255,255,255,0.76);
+      margin-bottom: 2%;
+    }
+    .padded-button {
+      padding-right: 50px;
     }
     #chat-wrap {
       display: none;
@@ -139,10 +140,10 @@
     #message, #nickname {
       background-color: rgba(255,255,255, .2);
     }
-    #chat-wrap, #users {
+    #chat-wrap {
       margin: 0 auto;
       display: inline-block;
-      width: 49%;
+      width: 68%;
       padding: 30px;
       background-color: rgba(255,255,255, .2);
       -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
@@ -151,7 +152,14 @@
     }
     #users {
       float: right;
-
+      margin: 0 auto;
+      display: inline-block;
+      width: 30%;
+      padding: 30px;
+      background-color: rgba(255,255,255, .2);
+      -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
     }
     #content-wrap {
       margin: 0 auto;
@@ -202,21 +210,22 @@
       <p id="nick-error"></p>
       <form id="set-nickname">
         <input size="35" id="nickname">
-        <input type="submit" class="form-button">
+        <button type="submit" class="form-button padded-button">Submit</button>
+        <!-- <input type="submit" class="form-button"> -->
       </form>
     </div>
 
     <div id="content-wrap" class="hidden">
 
       <div id="chat-wrap">
-        <h2 class="title">Chat Box</h2>
+        <h2 class="title">Chat Room</h2>
         <hr>
         <ul class="clear">
           <li id="chat"></li>
         </ul>
       </div>
       <div id="users" >
-        <h2 class="title">Users</h2>
+        <h2 class="title">Current Users</h2>
         <hr>
         <div class="clear">
 
@@ -228,8 +237,9 @@
 
     <div id="message-wrap" class="hidden">
       <form id="send-message">
-        <input id="message" type="text" >
-        <input class="form-button" type="submit">
+        <input id="message" type="text">
+        <button type="submit" class="form-button">Submit</button>
+        <!-- <input class="form-button" type="submit"> -->
       </form>
     </div>
 
@@ -277,7 +287,7 @@
         });
 
         socket.on('new message', function(data) {
-          $chat.append('<b>' + data.nick + ': </b>' + data.msg + '<br/>');
+          $chat.append('<b>' + data.nick + ' says: </b> ' + data.msg + '<br/>');
         });
 
 
