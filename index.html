@@ -64,7 +64,8 @@
     html {
       font-family: 'Roboto','Noto Sans', sans-serif;
       background-color: #00BCD4;
-      color: white;
+      color: #F0FDFF;
+
       font-weight: lighter;
     }
     ul {
@@ -73,17 +74,18 @@
     .top-banner {
       background-color: #00BCD4;
       padding: 25px;
+      margin-bottom: 40px;
       text-align: center;
       width: 100%;
-      -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-      -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-      box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+      -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
 
     }
     .title {
       font-family: 'Roboto', sans-serif;
       font-weight: 900;
-      color: white;
+      color: #F0FDFF;
       text-shadow: 2px 2px #0097A7;
     }
     h1 {
@@ -96,11 +98,12 @@
       font-size: 1em;
       padding: 1%;
       line-height: 1.5;
+
     }
     #nick-wrap {
-      position: fixed;
-      bottom: 50%;
-      right: 33%;
+      position: absolute;
+      top: 50%;
+      right: 30%;
     }
     #nickname {
       padding: 5px;
@@ -108,23 +111,26 @@
     }
     #message {
     border: 0;
-    padding: 1%;
+    padding: 2%;
     width: 90%;
     margin-left: 1%;
     list-style-type: none;
-    -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-    -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-    box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+    -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+    -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+    box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
     margin-bottom: 2%;
     }
-    #form-button {
+    .form-button {
+      border-radius: 50%;
     width: 8%;
     border: none;
     padding: 10px;
-    -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-    -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-    box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-    background-color: rgba(255,255,255, .2);
+    padding-right: 50px;
+    text-align: center;
+    -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+    -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+    box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+    background-color: rgba(255,255,255,0.76);
     margin-bottom: 2%;
     }
     #chat-wrap {
@@ -139,9 +145,9 @@
       width: 49%;
       padding: 30px;
       background-color: rgba(255,255,255, .2);
-      -webkit-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-      -moz-box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
-      box-shadow: 6px 7px 21px -6px rgba(0,0,0,0.76);
+      -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+      box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
     }
     #users {
       float: right;
@@ -159,6 +165,7 @@
       bottom: 0;
       margin: 0 auto;
       width: 100%;
+      padding: 30px;
     }
     .hidden {
       visibility: hidden;
@@ -195,7 +202,7 @@
       <p id="nick-error"></p>
       <form id="set-nickname">
         <input size="35" id="nickname">
-        <input type="submit">
+        <input type="submit" class="form-button">
       </form>
     </div>
 
@@ -222,7 +229,7 @@
     <div id="message-wrap" class="hidden">
       <form id="send-message">
         <input id="message" type="text" >
-        <input id="form-button" type="submit">
+        <input class="form-button" type="submit">
       </form>
     </div>
 
