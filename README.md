@@ -16,20 +16,19 @@ Inspiration for this project can be found in [this tutorial](http://www.oreilly.
 
 ## Specifications
 
-- [ ] Include a text input area and a chat window in a simple yet appealing User Inerface.
-- [ ] Use of material design principles to make chat room "feel" good.
-- [ ] Build Node.js server( and install dependencies, using brew and/or npm) .
-- [ ] Type message into a text box.
-- [ ] On enter/return, message is sent to chat window (and text input box is cleared).
-- [ ] Chat window displays multi-user's messages in real time using [websockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
-- [ ] Attach user info (like a name) to each message; in order to do this, developers will need to ask for and save a user's name, or assign user a handle or number.
+- [x] Include a text input area and a chat window in a simple yet appealing User Inerface.
+- [x] Use of material design principles to make chat room "feel" good.
+- [x] Build Node.js server( and install dependencies, using brew and/or npm) .
+- [x] Type message into a text box.
+- [x] On enter/return, message is sent to chat window (and text input box is cleared).
+- [x] Chat window displays multi-user's messages in real time using [websockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
+- [x] Attach user info (like a name) to each message; in order to do this, developers will need to ask for and save a user's name, or assign user a handle or number.
 
 
 ## Stretch Goals
 - [ ] Deploy using Heroku.
 - [ ] Store chat histories for later retrieval (create persistence layer) .
 - [ ] Enable users to search chat histories.
-- [ ] Create chat threads.
 - [ ] Enable user to chat privately with any other user.
 - [ ] Enable users to log in (using Github oAuth, for example).
 
