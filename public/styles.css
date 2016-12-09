@@ -1,61 +1,183 @@
-* {
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
 margin: 0;
 padding: 0;
-box-sizing: border-box;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
 }
 body {
-font: 13px Helvetica, Arial;
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  /*outline: 1px dotted red;*/
+}
+html {
+  font-family: 'Roboto','Noto Sans', sans-serif;
+  background-color: #00BCD4;
+  color: #F0FDFF;
+
+  font-weight: lighter;
 }
 ul {
   list-style: none;
 }
-#send-message {
-border: 1px solid red;
-padding: 3px;
+.top-banner {
+  background-color: #00BCD4;
+  padding: 25px;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+  -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+
+}
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: #F0FDFF;
+  text-shadow: 2px 2px #0097A7;
+}
+h1 {
+  font-size: 3.25em;
+}
+h2 {
+  font-size: 1.5em;
+}
+p, li {
+  font-size: 1em;
+  padding: 1%;
+  line-height: 1.5;
+
+}
+#nick-wrap {
+  position: absolute;
+  top: 50%;
+  right: 30%;
+}
+#nickname {
+  padding: 5px;
+  margin-top: 3px;
 }
 #message {
 border: 0;
-padding: 10px;
+padding: 2%;
 width: 90%;
-margin-right: .5%;
-}
-#form-button {
-width: 9%;
-background: rgb(130, 224, 255);
-border: none;
-padding: 10px;
-}
-#message {
+margin-left: 1%;
 list-style-type: none;
+-webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+-moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+margin-bottom: 2%;
+}
+.form-button {
+  border-radius: 50%;
+  width: 8%;
+  padding: 10px;
+  text-align: center;
+  -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  background-color: rgba(255,255,255,0.76);
+  margin-bottom: 2%;
+}
+.padded-button {
+  padding-right: 50px;
 }
 #chat-wrap {
   display: none;
 }
-#chat-wrap, #users {
+#message, #nickname {
+  background-color: rgba(255,255,255, .2);
+}
+#chat-wrap {
   margin: 0 auto;
   display: inline-block;
-  width: 49%;
-  border: 1px solid red;
+  width: 68%;
   padding: 30px;
+  background-color: rgba(255,255,255, .2);
+  -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
 }
 #users {
   float: right;
-
+  margin: 0 auto;
+  display: inline-block;
+  width: 30%;
+  padding: 30px;
+  background-color: rgba(255,255,255, .2);
+  -webkit-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  -moz-box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
+  box-shadow: 6px 7px 21px -6px rgba(255,255,255,0.76);
 }
 #content-wrap {
   margin: 0 auto;
   padding: 30px;
   display: block;
-  border: 1px solid #000;
   width: 100%;
 }
 #message-wrap {
   clear: both;
-  width: 100%;
   position: fixed;
   bottom: 0;
   margin: 0 auto;
+  width: 100%;
+  padding: 30px;
 }
+.hidden {
+  visibility: hidden;
+}
+hr {
+  opacity: .5;
+  width: 50%;
+  float: left;
+  display: block;
+}
+.clear {
+  clear: both;
+}
+
 /*#messages li {
 padding: 5px 10px;
 margin: 50px;
