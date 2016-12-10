@@ -27,7 +27,7 @@ $(document).ready(function() {
       for(var i=0; i<data.length; i++){
         html += data[i] + '<br/>';
       }
-    $users.append(html);
+    $users.html(html);
   });
 
   $messageForm.submit(function(e){
