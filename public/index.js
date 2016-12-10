@@ -37,7 +37,7 @@ $(document).ready(function() {
   });
 
   socket.on('new message', function(data) {
-    $chat.append('<b>' + data.nick + ' says: </b> ' + data.msg + '<br/>');
+    $chat.prepend('<b>' + data.nick + ' says: </b> ' + data.msg + '<br/>');
   });
 
 }); //Document ready close
