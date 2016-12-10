@@ -22,27 +22,27 @@
       </form>
     </div>
     <div id="main">
-      <div id="content-wrap" class="hidden">
-        <div id="chat-wrap">
-          <h2 class="title">Chat Room</h2>
-          <hr>
-          <ul class="clear">
-            <li id="chat"></li>
-          </ul>
-        </div>
-        <div id="users" >
-          <h2 class="title">Current Users</h2>
-          <hr>
-          <div class="clear">
-          </div>
+    <div id="content-wrap" class="hidden">
+      <div id="chat-wrap">
+        <h2 class="title">Chat Room</h2>
+        <hr>
+        <ul class="clear">
+          <li id="chat"></li>
+        </ul>
+      </div>
+      <div id="users">
+        <h2 class="title">Current Users</h2>
+        <hr>
+        <div id="usernames" class="clear">
         </div>
       </div>
-      <div id="message-wrap" class="hidden">
-        <form id="send-message">
-          <input id="message" type="text">
-          <button type="submit" class="form-button">Submit</button>
-        </form>
-      </div>
+    </div>
+    <div id="message-wrap" class="hidden">
+      <form id="send-message">
+        <input id="message" type="text">
+        <button type="submit" class="form-button">Submit</button>
+      </form>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>

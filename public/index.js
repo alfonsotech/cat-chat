@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var $users = $('#users');
+  var $usernames = $('#usernames');
   var socket = io.connect();
   var $nickForm = $('#set-nickname');
   var $nickError = $('#nick-error');
@@ -27,7 +27,7 @@ $(document).ready(function() {
       for(var i=0; i<data.length; i++){
         html += data[i] + '<br/>';
       }
-    $users.html(html);
+    $usernames.html(html);
   });
 
   $messageForm.submit(function(e){

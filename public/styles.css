@@ -125,3 +125,29 @@ margin-bottom: 2%;
   width: 100%;
   padding: 30px;
 }
+@media only screen and (max-device-width : 375px) {
+#users{
+    width: 48%;
+    height: 15em;
+
+}
+#chat-wrap{
+    width: 50%;
+    height: 15em;
+}
+#message-wrap{
+  clear:both;
+  position:fixed;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
+  padding: 30px;
+}
+#message{
+  width: 77%;
+
+}
+.form-button {
+  width: 20%;
+}
+}
