@@ -21,6 +21,10 @@ p, li {
   padding: 1%;
   line-height: 1.5;
 }
+#nick-error {
+  padding: 0px;
+  line-height: 1;
+}
 hr {
   opacity: .5;
   width: 50%;
@@ -64,9 +68,9 @@ hr {
   padding-right: 50px;
 }
 #nick-wrap {
-  position: absolute;
-  top: 50%;
-  right: 30%;
+  width: 297px;
+  margin: 148px auto;
+  display: block;
 }
 #nickname {
   padding: 5px;
@@ -127,17 +131,17 @@ margin-bottom: 2%;
 }
 @media only screen and (max-device-width : 375px) {
 #users{
-    width: 48%;
+    width: 37%;
     height: 15em;
 
 }
 #chat-wrap{
-    width: 50%;
+    width: 60%;
     height: 15em;
 }
 #message-wrap{
   clear:both;
-  position: static; 
+  position: static;
   margin: 0 auto;
   width: 100%;
   padding: 30px;
